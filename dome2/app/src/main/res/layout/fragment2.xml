@@ -7,40 +7,4 @@
     android:layout_height="match_parent">
 
 
-    <SearchView
-        android:id="@+id/searchView2"
-        android:layout_width="285dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/ibt1"
-        android:layout_width="33dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/arrow_down_float" />
-
-    <TextView
-        android:id="@+id/jiage1"
-        android:layout_width="30dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="价格"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/ibt1"
-        app:layout_constraintStart_toEndOf="@+id/searchView2"
-        app:layout_constraintTop_toTopOf="parent" />
-
 </android.support.constraint.ConstraintLayout>

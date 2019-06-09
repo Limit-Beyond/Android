@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:padding="5dp"
+    tools:context="com.example.dome2.Wenziliaotian">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_chatList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linearLayout">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_weight="6"
+            android:layout_height="50dp">
+            <EditText
+                android:id="@+id/et_content"
+                android:hint="请输入文字..."
+                android:textSize="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/bt_send"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:text="发送"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</RelativeLayout>

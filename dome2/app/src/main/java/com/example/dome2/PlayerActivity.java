@@ -1,6 +1,7 @@
 package com.example.dome2;
 
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,14 +12,12 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 
 public class PlayerActivity extends AppCompatActivity  implements View.OnClickListener{
@@ -41,6 +40,14 @@ public class PlayerActivity extends AppCompatActivity  implements View.OnClickLi
             if(ja.size()>0){
                 for(int i=0;i<ja.size();i++){
                     LinearLayout childView = (LinearLayout) LayoutInflater.from(PlayerActivity.this).inflate(R.layout.item, null);
+                    childView.setOnClickListener(new View.OnClickListener(){
+
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent=new Intent(PlayerActivity.this,Playerdetail.class);
+                            startActivity(intent);
+                        }
+                    } );
                     linearLayout.addView(childView,i);
                     ArrayList<String> textLists=new ArrayList<>();
                     JSONObject job = ja.getJSONObject(i);  // 遍历 jsonarray 数组，把每一个对象转成 json 对象

@@ -113,7 +113,7 @@
         app:layout_constraintTop_toTopOf="@id/button_box" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/slbtn"
         android:text="注册"
         android:textColor="#ffffff"
         android:background="@drawable/shape"

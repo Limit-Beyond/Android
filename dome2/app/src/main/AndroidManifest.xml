@@ -22,13 +22,17 @@
         <activity android:name=".Cdk"/>
         <activity android:name=".Toy"/>
         <activity android:name=".Skin"/>
-        <activity android:name=".Player"/>
         <activity android:name=".CdkActivity"/>
         <activity android:name=".PlayerActivity"/>
         <activity android:name=".OrderActivity"/>
         <activity android:name=".SaleActivity"/>
         <activity android:name=".PifuActivity"/>
         <activity android:name=".CdkLists"/>
+        <activity android:name=".Commondetail"/>
+        <activity android:name=".Playerdetail"/>
+        <activity android:name=".Wenziliaotian"/>
+
+
         <provider
             android:authorities="666"
             android:name="com.example.dome2.Provider"
