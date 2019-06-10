@@ -5,36 +5,75 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+
+import java.util.ArrayList;
 
 
 public class ZhoubianActivity extends AppCompatActivity  implements View.OnClickListener{
 
     ContentResolver contentResolver ;
+    ArrayList<String>tagNames=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cdkdetail);
-
+        setContentView(R.layout.toy);
+        LinearLayout linearLayout;
         contentResolver = getApplicationContext().getContentResolver();
+        tagNames.add("Nametitle");
+        tagNames.add("SexTitle");
+        tagNames.add("PriceTitle");
 
-        contentResolver.query(Uri.parse("content://666/FindZhoubians/1"),null,null,null,null);
+
+        linearLayout=findViewById(R.id.ToyFatherView);
+//        contentResolver.query(Uri.parse("content://666/FindZhoubians/1"),null,null,null,null);
+        contentResolver.query(Uri.parse("content://666/ZhoubianInfo"),null,null,null,null);
         try {
+
             JSONArray ja = JSONArray.parseArray(Provider.result);
-            Log.i("RESULT:",ja.toJSONString());
-        } catch (Exception e) {
+            System.out.println("大爱电视为   "+ja.size());
+            for(int i=0;i<ja.size();i++){
+                JSONObject jo=ja.getJSONObject(i);
+
+                //测试
+                System.out.println(jo.getString("name"));
+                System.out.println(jo.getString("intro"));
+                System.out.println(jo.getString("price"));
+                //测试
+
+                LinearLayout childView = (LinearLayout) LayoutInflater.from(ZhoubianActivity.this).inflate(R.layout.item, null);
+                linearLayout.addView(childView,i);
+                ArrayList<String> textLists=new ArrayList<>();
+                textLists.add(jo.getString("name"));
+                textLists.add(jo.getString("intro"));
+                textLists.add(jo.getString("price"));
+                ImageView imageView=childView.findViewWithTag("imgeTitle");
+                imageView.setImageResource(R.mipmap.toy1+i%7);
+                SetValues(childView,tagNames,textLists);
+                 Log.i("RESULT:",ja.toJSONString());
+        }
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
-
+        public void SetValues(LinearLayout linearLayout, ArrayList <String>tagNames,ArrayList <String>ViewsText){
+            for(int i=0;i<tagNames.size();i++){
+                TextView textView= linearLayout.findViewWithTag(tagNames.get(i));
+                textView.setText(ViewsText.get(i));
+            }
+        }
 
     @Override
     public void onClick(View view) {

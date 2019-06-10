@@ -11,6 +11,7 @@ public class Skin extends Activity{
     private ImageButton imageButton;
     private ImageView imageView;
 
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.skin);

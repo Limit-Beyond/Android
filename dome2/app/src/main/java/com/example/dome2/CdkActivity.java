@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -36,7 +37,6 @@ public class CdkActivity extends AppCompatActivity  implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cdkdetail);
         LinearLayout linearLayout;
-
         tagNames.add("Nametitle");
         tagNames.add("SexTitle");
         tagNames.add("PriceTitle");
@@ -61,58 +61,39 @@ public class CdkActivity extends AppCompatActivity  implements View.OnClickListe
         System.out.println(Provider.result);
 
         try {
-            JSONArray x=JSONArray.parseArray(Provider.result);
-            System.out.println("大小为     "+x.size());
-            JSONObject jo = JSONObject.parseObject(JSONArray.parseArray(Provider.result).getString(0));
-            System.out.println(jo.toString());
-            JSONArray jsonArray=jo.getJSONArray("doodles");
-            String intro="";//游戏介绍
-            String lo="";//游戏价格
-            String cdk="";//游戏cdk
+            JSONArray ja=JSONArray.parseArray(Provider.result);
+            for(int i=0;i<ja.size();i++){
+                JSONObject jo=ja.getJSONObject(i);
 
-            for(int i=0;i<jsonArray.size();i++){
+                //测试
+                System.out.println(jo.getString("name"));
+                System.out.println(jo.getString("cdk"));
+                System.out.println(jo.getString("name"));
+                //测试
+
+//                System.out.println(jo.getString("price"));//暂时没有price
                 LinearLayout childView = (LinearLayout) LayoutInflater.from(CdkActivity.this).inflate(R.layout.item, null);
                 linearLayout.addView(childView,i);
                 ArrayList<String> textLists=new ArrayList<>();
-                JSONObject jsonObject= (JSONObject) jsonArray.get(i);
-                cdk=jsonObject.getString("video");//cdk
-                intro=jsonObject.getString("intro");//intro
-                lo=String.valueOf(new Random().nextInt(200)+50);
-                textLists.add(lo);
-                textLists.add(cdk);
-                textLists.add(intro);
-                SetValues(childView,tagNames,textLists);
-                JSONObject job = jsonArray.getJSONObject(i);
-
-                String nametitle = job.getString("name");
-                String price = job.getString("price");
-                String location = job.getString("location");
-                System.out.println("属性列表开始");
-                System.out.println(nametitle);
-                System.out.println(price);
-                System.out.println(location);
-                System.out.println("属性列表结束");
-                textLists.add(nametitle);
-                textLists.add(price);
-                textLists.add(location);
+                textLists.add(jo.getString("name"));
+                textLists.add(jo.getString("cdk"));
+                textLists.add(jo.getString("name"));
+//                textLists.add(jo.getString("price"));
+                ImageView imageView=childView.findViewWithTag("imgeTitle");
+                imageView.setImageResource(R.mipmap.game1+i%7);
                 SetValues(childView,tagNames,textLists);
             }
-
-            Log.i("RESULT:",jo.toJSONString());
-        } catch (Exception e) {
+    }catch (Exception e){
             e.printStackTrace();
         }
-
     }
 
 
     public void SetValues(LinearLayout linearLayout, ArrayList <String>tagNames,ArrayList <String>ViewsText){
-
         for(int i=0;i<tagNames.size();i++){
             TextView textView= linearLayout.findViewWithTag(tagNames.get(i));
             textView.setText(ViewsText.get(i));
         }
-
     }
 
 

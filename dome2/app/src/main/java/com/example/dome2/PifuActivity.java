@@ -5,42 +5,68 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
+import java.util.ArrayList;
+
 
 public class PifuActivity extends AppCompatActivity  implements View.OnClickListener{
 
     ContentResolver contentResolver ;
-
+    ArrayList<String>tagNames=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.skin);
+        LinearLayout linearLayout=findViewById(R.id.SkinFatherView);
 
         contentResolver = getApplicationContext().getContentResolver();
 
         contentResolver.query(Uri.parse("content://666/FindPifus/1"),null,null,null,null);
+
+        tagNames.add("Nametitle");
+        tagNames.add("SexTitle");
+        tagNames.add("PriceTitle");
+
+
+
+
+        //    皮肤_leader name（名称） spot_id（对应游戏类别），price，intro
+
         try {
             JSONArray ja = JSONArray.parseArray(Provider.result);
            for(int i=0;i<ja.size();i++){
-               JSONObject job=ja.getJSONObject(i);
-                String pirce= job.getString("price");
-                String intro= job.getString("intro");
-
-               System.out.println("price    "+pirce);
-               System.out.println("intro    "+intro);
-
+               JSONObject jo=ja.getJSONObject(i);
+               LinearLayout childView = (LinearLayout) LayoutInflater.from(PifuActivity.this).inflate(R.layout.item, null);
+               linearLayout.addView(childView,i);
+               ArrayList<String> textLists=new ArrayList<>();
+               textLists.add(jo.getString("name"));
+               textLists.add(jo.getString("intro"));
+               textLists.add(jo.getString("price"));
+               ImageView imageView=childView.findViewWithTag("imgeTitle");
+               imageView.setImageResource(R.mipmap.skin1+i%9);
+               SetValues(childView,tagNames,textLists);
            }
-
-            Log.i("RESULT:",ja.toJSONString());
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+
+    public void SetValues(LinearLayout linearLayout, ArrayList <String>tagNames,ArrayList <String>ViewsText){
+
+        for(int i=0;i<tagNames.size();i++){
+            TextView textView= linearLayout.findViewWithTag(tagNames.get(i));
+            textView.setText(ViewsText.get(i));
         }
 
     }
