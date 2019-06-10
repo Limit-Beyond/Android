@@ -32,6 +32,9 @@
         <activity android:name=".Playerdetail"/>
         <activity android:name=".Wenziliaotian"/>
         <activity android:name=".ZhoubianActivity"/>
+        <activity android:name=".Userdetail"/>
+
+
 
 
         <provider

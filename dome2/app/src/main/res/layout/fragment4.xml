@@ -102,7 +102,7 @@
         app:layout_constraintRight_toRightOf="parent"/>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/login1"
         android:text="登录"
         android:textColor="#ffffff"
         android:background="@drawable/shape"
@@ -120,7 +120,7 @@
         android:textSize="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@id/button1"
+        app:layout_constraintLeft_toRightOf="@id/login1"
         android:layout_marginLeft="10dp"
         app:layout_constraintTop_toTopOf="@id/button_box"/>
 

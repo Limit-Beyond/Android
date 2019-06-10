@@ -28,13 +28,14 @@ public class Fragment4 extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         //textView=(TextView)getActivity().findViewById(R.id.textView3);
-//        button=(Button)getActivity().findViewById(R.id.button3);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(getActivity(),"Fragment3",Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        button=(Button)getActivity().findViewById(R.id.login1);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               Intent intent=new Intent(getActivity(),Userdetail.class);
+               startActivity(intent);
+            }
+        });
 
 
     }
