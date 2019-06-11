@@ -3,7 +3,7 @@ package com.example.dome2;
 import java.net.HttpURLConnection;
 
 /**
- * CDK查询
+ *
  */
 public class PlayerService extends Service {
 

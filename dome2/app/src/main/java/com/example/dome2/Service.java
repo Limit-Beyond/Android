@@ -11,6 +11,11 @@ import java.net.URL;
 
 public class Service  {
 
+    //6.11日新增
+    public String Detail(String id){
+        return null;
+    }
+
     public String findOne(String id){
         return null;
     }

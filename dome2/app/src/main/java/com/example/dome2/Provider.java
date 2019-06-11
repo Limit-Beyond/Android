@@ -37,11 +37,16 @@ public class Provider extends ContentProvider {
         uriMatcher.addURI("666","PifuInfo", TYPES.PIFUINFO.ordinal());
         uriMatcher.addURI("666","FindPlayers/#", TYPES.FINDPLAYERS.ordinal());
         uriMatcher.addURI("666","PlayerInfo", TYPES.PLAYERINFO.ordinal());
+
+
+        uriMatcher.addURI("666","AddOrder", TYPES.ADDORDER.ordinal());
+        uriMatcher.addURI("666","AddSale", TYPES.ADDSALE.ordinal());
+        uriMatcher.addURI("666","DeleteSale", TYPES.DELETESALE.ordinal());
         return false;
     }
 
 
-    public void doSomeThing(Class c ,TYPE.TypeEnum t ,long id) {
+    public void doSomeThing(Class c ,TYPE.TypeEnum t ,Object id) {
         if(!c.isInstance(service)) {
             try {
                 service = (Service)c.newInstance();
@@ -51,8 +56,8 @@ public class Provider extends ContentProvider {
                 e.printStackTrace();
             }
         }
-        if(id!=-1){
-            ThreadA a = new ThreadA(service,t,String.valueOf(id));
+        if((long)id!=-1){
+            ThreadA a = new ThreadA(service,t,String.valueOf((long)id));
             Thread thread = new Thread(a);
             thread.start();
             while(!a.isCompleted()){}
@@ -75,25 +80,26 @@ public class Provider extends ContentProvider {
         int code=uriMatcher.match(uri);
         TYPES t[]  =  TYPES.values();
 
+        Object idtmp=(Object)(new Long(-1));
         TYPES tt = t[code];
         switch (tt) {
             case CDKINFO:
-                doSomeThing(CdkService.class,TYPE.TypeEnum.FINDALL,-1);
+                doSomeThing(CdkService.class,TYPE.TypeEnum.FINDALL,idtmp);
                 return null;
             case ORDERINFO:
-                doSomeThing(OrderService.class,TYPE.TypeEnum.FINDALL,-1);
+                doSomeThing(OrderService.class,TYPE.TypeEnum.FINDALL,idtmp);
                 return null;
             case PIFUINFO:
-                doSomeThing(PifuService.class,TYPE.TypeEnum.FINDALL,-1);
+                doSomeThing(PifuService.class,TYPE.TypeEnum.FINDALL,idtmp);
                 return null;
             case ZHOUBIANINFO:
-                doSomeThing(ZhoubianService.class,TYPE.TypeEnum.FINDALL,-1);
+                doSomeThing(ZhoubianService.class,TYPE.TypeEnum.FINDALL,idtmp);
                 return null;
             case SALEINFO:
-                doSomeThing(SaleService.class,TYPE.TypeEnum.FINDALL,-1);
+                doSomeThing(SaleService.class,TYPE.TypeEnum.FINDALL,idtmp);
                 return null;
             case PLAYERINFO:
-                doSomeThing(PlayerService.class,TYPE.TypeEnum.FINDALL,-1);
+                doSomeThing(PlayerService.class,TYPE.TypeEnum.FINDALL,idtmp);
                 return null;
             default:
                 break;
@@ -101,29 +107,29 @@ public class Provider extends ContentProvider {
 
 
         long id= ContentUris.parseId(uri);
-
+        idtmp=(Object)(new Long(id));
 
         switch (tt) {
             case FINDCDKS:
-                doSomeThing(CdkService.class,TYPE.TypeEnum.FINDONE,id);
+                doSomeThing(CdkService.class,TYPE.TypeEnum.FINDONE,idtmp);
                 return null;
 
             case FINDORDERS:
-                doSomeThing(OrderService.class,TYPE.TypeEnum.FINDONE,id);
+                doSomeThing(OrderService.class,TYPE.TypeEnum.FINDONE,idtmp);
                 break;
             case FINDPIFUS:
-                doSomeThing(PifuService.class,TYPE.TypeEnum.FINDALL,id);
+                doSomeThing(PifuService.class,TYPE.TypeEnum.FINDALL,idtmp);
                 break;
             case FINDZHOUBIANS:
-                doSomeThing(ZhoubianService.class,TYPE.TypeEnum.FINDALL,id);
+                doSomeThing(ZhoubianService.class,TYPE.TypeEnum.FINDALL,idtmp);
                 break;
 
             case FINDSALES:
-                doSomeThing(SaleService.class,TYPE.TypeEnum.FINDALL,id);
+                doSomeThing(SaleService.class,TYPE.TypeEnum.FINDALL,idtmp);
                 break;
 
             case FINDPLAYERS:
-                doSomeThing(PlayerService.class,TYPE.TypeEnum.FINDALL,id);
+                doSomeThing(PlayerService.class,TYPE.TypeEnum.FINDALL,idtmp);
                 break;
             default:
                 break;
@@ -182,7 +188,37 @@ public class Provider extends ContentProvider {
     @Override
     public Uri insert(Uri uri, ContentValues contentValues) {
         int code=uriMatcher.match(uri);
-        switch (code) {
+        Object id ;
+        try {
+            id = ContentUris.parseId(uri);
+        }
+        catch (Exception e){
+            id = 1;
+        }
+
+        TYPES t[]  =  TYPES.values();
+        TYPES tt = t[code];
+
+        String data;
+        switch (tt) {
+            case ADDORDER:
+                data = "?Custoemrid=" + contentValues.get("Custoemrid") ;
+                for(String key : contentValues.keySet()){
+                    if(key.equals("Custoemrid"))
+                        continue;
+                    data+="&"+key+"="+contentValues.get(key);
+                }
+                doSomeThing(OrderService.class,TYPE.TypeEnum.INSERTONE,data);
+                break;
+            case ADDSALE:
+                data = "?Custoemrid=" + contentValues.get("Custoemrid") ;
+                for(String key : contentValues.keySet()){
+                    if(key.equals("Custoemrid"))
+                        continue;
+                    data+="&"+key+"="+contentValues.get(key);
+                }
+                doSomeThing(OrderService.class,TYPE.TypeEnum.INSERTONE,data);
+                break;
 
         }
         return null;
@@ -190,8 +226,25 @@ public class Provider extends ContentProvider {
 
     @Override
     public int delete(Uri uri, String s, String[] strings) {
-        long id= ContentUris.parseId(uri);
-    
+        int code=uriMatcher.match(uri);
+        Object id ;
+        try {
+            id = ContentUris.parseId(uri);
+        }
+        catch (Exception e){
+            id = 1;
+        }
+
+        TYPES t[]  =  TYPES.values();
+        TYPES tt = t[code];
+
+        String data;
+        switch (tt) {
+            case DELETESALE:
+                doSomeThing(OrderService.class,TYPE.TypeEnum.DELETEONE,id);
+                break;
+
+        }
         return 0;
     }
 
