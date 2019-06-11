@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ import android.widget.Toast;
 public class Fragment4 extends Fragment {
     private TextView textView;
     private Button button;
+    private ImageView imageView;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -27,15 +29,24 @@ public class Fragment4 extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        //textView=(TextView)getActivity().findViewById(R.id.textView3);
-        button=(Button)getActivity().findViewById(R.id.login1);
-        button.setOnClickListener(new View.OnClickListener() {
+        imageView=(ImageView)getActivity().findViewById(R.id.tiaozhuan);
+        imageView.setOnClickListener(new View.OnClickListener(){
+
             @Override
-            public void onClick(View view) {
-               Intent intent=new Intent(getActivity(),Userdetail.class);
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),Userdetail.class);
                startActivity(intent);
             }
         });
+        //textView=(TextView)getActivity().findViewById(R.id.textView3);
+        //button=(Button)getActivity().findViewById(R.id.login1);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//               Intent intent=new Intent(getActivity(),Userdetail.class);
+//               startActivity(intent);
+//            }
+//        });
 
 
     }

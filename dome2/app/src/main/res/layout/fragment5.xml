@@ -38,7 +38,6 @@
                 android:orientation="vertical">
 
 
-
                 <ImageView
                     android:id="@+id/cardin21img"
                     android:layout_width="match_parent"
@@ -46,12 +45,12 @@
                     android:src="@mipmap/dnf" />
 
                 <TextView
-                android:id="@+id/cardin21txt"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:text="毒奶粉天下第一"
-                android:textSize="18sp" />
+                    android:id="@+id/cardin21txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="毒奶粉天下第一"
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
@@ -61,6 +60,7 @@
                 android:layout_width="170dp"
                 android:layout_height="180dp"
                 android:orientation="vertical">
+
                 <ImageView
                     android:id="@+id/cardin22img"
                     android:layout_width="match_parent"
@@ -77,10 +77,10 @@
 
             </LinearLayout>
 
-            </LinearLayout>
-
-
         </LinearLayout>
+
+
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/upbtnview"
         android:layout_width="match_parent"
