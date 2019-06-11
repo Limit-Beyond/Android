@@ -30,7 +30,6 @@ public class ZhoubianService extends Service {
 
     public String findAll(){
         try {
-            System.out.println("撒旦撒大苏打·");
             HttpURLConnection urlConn = super.getConnect(FindAll+"?spotid=undefined");
             urlConn.connect();
             if (urlConn.getResponseCode() == 200) {

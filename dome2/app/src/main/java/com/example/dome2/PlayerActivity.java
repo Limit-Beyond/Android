@@ -39,12 +39,17 @@ public class PlayerActivity extends AppCompatActivity  implements View.OnClickLi
             JSONArray ja = JSONArray.parseArray(Provider.result);
             if(ja.size()>0){
                 for(int i=0;i<ja.size();i++){
-                    LinearLayout childView = (LinearLayout) LayoutInflater.from(PlayerActivity.this).inflate(R.layout.item, null);
+                    final  LinearLayout childView = (LinearLayout) LayoutInflater.from(PlayerActivity.this).inflate(R.layout.item, null);
+                    childView.setId(i);
                     childView.setOnClickListener(new View.OnClickListener(){
 
                         @Override
                         public void onClick(View v) {
                             Intent intent=new Intent(PlayerActivity.this,Playerdetail.class);
+                            Bundle data = new Bundle();
+                            data.putInt("id",childView.getId());
+                            data.putString("type","player");
+                            intent.putExtra("data",data);
                             startActivity(intent);
                         }
                     } );
