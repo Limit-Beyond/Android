@@ -13,6 +13,11 @@
         android:icon="@mipmap/ic_dingdan"
         />
     <item
+        android:title="发现"
+        android:id="@+id/id5"
+        android:icon="@mipmap/ic_user"
+        />
+    <item
         android:title="出售"
         android:id="@+id/id3"
         android:icon="@mipmap/ic_sale"
