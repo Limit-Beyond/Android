@@ -38,8 +38,6 @@ public class PifuActivity extends AppCompatActivity  implements View.OnClickList
         tagNames.add("PriceTitle");
 
 
-
-
         //    皮肤_leader name（名称） spot_id（对应游戏类别），price，intro
 
         try {
@@ -47,6 +45,7 @@ public class PifuActivity extends AppCompatActivity  implements View.OnClickList
            for(int i=0;i<ja.size();i++){
                JSONObject jo=ja.getJSONObject(i);
                LinearLayout childView = (LinearLayout) LayoutInflater.from(PifuActivity.this).inflate(R.layout.item, null);
+               childView.setId(i);
                linearLayout.addView(childView,i);
                ArrayList<String> textLists=new ArrayList<>();
                textLists.add(jo.getString("name"));

@@ -4,6 +4,7 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,7 +45,7 @@ public class CdkActivity extends AppCompatActivity  implements View.OnClickListe
         //id传递
         //id传递
         //id传递
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         Bundle data = intent.getBundleExtra("data");
         int id = data.getInt("id");
         System.out.println("iiiiiiiiiiiid: "+id);
@@ -68,17 +69,30 @@ public class CdkActivity extends AppCompatActivity  implements View.OnClickListe
                 //测试
                 System.out.println(jo.getString("name"));
                 System.out.println(jo.getString("cdk"));
-                System.out.println(jo.getString("name"));
+                System.out.println(jo.getString("name"));//price
                 //测试
 
 //                System.out.println(jo.getString("price"));//暂时没有price
-                LinearLayout childView = (LinearLayout) LayoutInflater.from(CdkActivity.this).inflate(R.layout.item, null);
+//                LinearLayout childView = (LinearLayout) LayoutInflater.from(CdkActivity.this).inflate(R.layout.commonitem, null);
+                final ConstraintLayout childView = (ConstraintLayout) LayoutInflater.from(CdkActivity.this).inflate(R.layout.commonitem, null);
+                childView.setId(i);
+                childView.setOnClickListener(new View.OnClickListener(){
+
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent1=new Intent(CdkActivity.this,CdkDetail.class);
+                        Bundle data = new Bundle();
+                        data.putInt("id",childView.getId());
+                        data.putString("type","cdk");
+                        intent1.putExtra("data",data);
+                        startActivity( intent1);
+                    }
+                });
                 linearLayout.addView(childView,i);
                 ArrayList<String> textLists=new ArrayList<>();
                 textLists.add(jo.getString("name"));
-                textLists.add(jo.getString("cdk"));
-                textLists.add(jo.getString("name"));
-//                textLists.add(jo.getString("price"));
+                textLists.add("价格:"+jo.getString("price").substring(0,jo.getString("price").indexOf("."))+"  ");
+                textLists.add(String.valueOf(new Random().nextInt(10))+"件在售");
                 ImageView imageView=childView.findViewWithTag("imgeTitle");
                 imageView.setImageResource(R.mipmap.game1+i%7);
                 SetValues(childView,tagNames,textLists);
@@ -89,9 +103,12 @@ public class CdkActivity extends AppCompatActivity  implements View.OnClickListe
     }
 
 
-    public void SetValues(LinearLayout linearLayout, ArrayList <String>tagNames,ArrayList <String>ViewsText){
+    public void SetValues(ConstraintLayout linearLayout, ArrayList <String>tagNames,ArrayList <String>ViewsText){
         for(int i=0;i<tagNames.size();i++){
             TextView textView= linearLayout.findViewWithTag(tagNames.get(i));
+            System.out.println("开始");
+            System.out.println(textView.getText().toString());
+            System.out.println("结束");
             textView.setText(ViewsText.get(i));
         }
     }
