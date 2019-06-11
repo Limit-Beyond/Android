@@ -34,9 +34,9 @@ public class Provider extends ContentProvider {
         uriMatcher.addURI("666","FindZhoubians/#", TYPES.FINDZHOUBIANS.ordinal());
         uriMatcher.addURI("666","ZhoubianInfo", TYPES.ZHOUBIANINFO.ordinal());
         uriMatcher.addURI("666","FindPifus/#", TYPES.FINDPIFUS.ordinal());
-        uriMatcher.addURI("666","PifuInfo", TYPES.PIFUINFO.ordinal());
+        uriMatcher.addURI("666","PifuInfo/#", TYPES.PIFUINFO.ordinal());
         uriMatcher.addURI("666","FindPlayers/#", TYPES.FINDPLAYERS.ordinal());
-        uriMatcher.addURI("666","PlayerInfo", TYPES.PLAYERINFO.ordinal());
+        uriMatcher.addURI("666","PlayerInfo/#", TYPES.PLAYERINFO.ordinal());
 
 
         uriMatcher.addURI("666","AddOrder", TYPES.ADDORDER.ordinal());
@@ -89,17 +89,11 @@ public class Provider extends ContentProvider {
             case ORDERINFO:
                 doSomeThing(OrderService.class,TYPE.TypeEnum.FINDALL,idtmp);
                 return null;
-            case PIFUINFO:
-                doSomeThing(PifuService.class,TYPE.TypeEnum.FINDALL,idtmp);
-                return null;
             case ZHOUBIANINFO:
                 doSomeThing(ZhoubianService.class,TYPE.TypeEnum.FINDALL,idtmp);
                 return null;
             case SALEINFO:
                 doSomeThing(SaleService.class,TYPE.TypeEnum.FINDALL,idtmp);
-                return null;
-            case PLAYERINFO:
-                doSomeThing(PlayerService.class,TYPE.TypeEnum.FINDALL,idtmp);
                 return null;
             default:
                 break;
@@ -110,27 +104,30 @@ public class Provider extends ContentProvider {
         idtmp=(Object)(new Long(id));
 
         switch (tt) {
+            case PLAYERINFO:
+                doSomeThing(PlayerService.class,TYPE.TypeEnum.FINDONE,idtmp);
+                return null;
             case FINDCDKS:
                 doSomeThing(CdkService.class,TYPE.TypeEnum.FINDONE,idtmp);
                 return null;
-
+            case PIFUINFO:
+                doSomeThing(PifuService.class,TYPE.TypeEnum.FINDONE,idtmp);
+                return null;
             case FINDORDERS:
                 doSomeThing(OrderService.class,TYPE.TypeEnum.FINDONE,idtmp);
-                break;
+                return null;
             case FINDPIFUS:
                 doSomeThing(PifuService.class,TYPE.TypeEnum.FINDALL,idtmp);
-                break;
+                return null;
             case FINDZHOUBIANS:
-                doSomeThing(ZhoubianService.class,TYPE.TypeEnum.FINDALL,idtmp);
-                break;
-
+                doSomeThing(ZhoubianService.class,TYPE.TypeEnum.FINDONE,idtmp);
+                return null;
             case FINDSALES:
                 doSomeThing(SaleService.class,TYPE.TypeEnum.FINDALL,idtmp);
-                break;
-
+                return null;
             case FINDPLAYERS:
                 doSomeThing(PlayerService.class,TYPE.TypeEnum.FINDALL,idtmp);
-                break;
+                return null;
             default:
                 break;
 

@@ -1,6 +1,7 @@
 package com.example.dome2;
 
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -44,7 +45,24 @@ public class PifuActivity extends AppCompatActivity  implements View.OnClickList
             JSONArray ja = JSONArray.parseArray(Provider.result);
            for(int i=0;i<ja.size();i++){
                JSONObject jo=ja.getJSONObject(i);
-               LinearLayout childView = (LinearLayout) LayoutInflater.from(PifuActivity.this).inflate(R.layout.item, null);
+               final  LinearLayout childView = (LinearLayout) LayoutInflater.from(PifuActivity.this).inflate(R.layout.item, null);
+
+
+               childView.setId(i);
+               childView.setOnClickListener(new View.OnClickListener(){
+
+                   @Override
+                   public void onClick(View v) {
+                       Intent intent1=new Intent(PifuActivity.this,CdkDetail.class);
+                       Bundle data = new Bundle();
+                       data.putInt("id",childView.getId());
+                       data.putString("type","pifu");
+                       intent1.putExtra("data",data);
+                       startActivity( intent1);
+                   }
+               });
+
+
                childView.setId(i);
                linearLayout.addView(childView,i);
                ArrayList<String> textLists=new ArrayList<>();

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -21,13 +22,23 @@ import java.util.ArrayList;
 //私聊的跳转已加
 public class Playerdetail extends AppCompatActivity {
 
-    ContentResolver contentResolver;
+
+    ContentResolver contentResolver ;
+    TextView textView2=null;
+    TextView textView3=null;
+    TextView textView4=null;
+    ImageView imageView=null;
+    Button button1=null;//提交订单
     LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.playerdetail);
+        textView2=findViewById(R.id.textView2);
+        textView3=findViewById(R.id.textView3);
+        textView4=findViewById(R.id.textView4);
+        imageView=findViewById(R.id.imageView);
         Button slbtn=(Button)findViewById(R.id.slbtn);
         //intent接收上个页面的数据 id
         final Intent intent = getIntent();
@@ -36,10 +47,13 @@ public class Playerdetail extends AppCompatActivity {
         String type = data.getString("type");
         contentResolver = getApplicationContext().getContentResolver();
         linearLayout=findViewById(R.id.fatherView);
-        contentResolver.query(Uri.parse("content://666/PlayerInfo"),null,null,null,null);
+        contentResolver.query(Uri.parse("content://666/PlayerInfo/"+(id+1)),null,null,null,null);
 
-        JSONArray ja = JSONArray.parseArray(Provider.result);
-        JSONObject jo=ja.getJSONObject(id);
+        JSONObject playerjo=JSONObject.parseObject(Provider.result);
+        textView2.setText("名称: "+playerjo.getString("name"));
+        textView3.setText("价格: "+playerjo.getString("price"));
+        textView4.setText("简介: "+playerjo.getString("intro"));
+        imageView.setImageResource(R.mipmap.character3+id%7);
 
 
 

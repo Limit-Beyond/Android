@@ -88,6 +88,7 @@ public class CdkActivity extends AppCompatActivity  implements View.OnClickListe
                         startActivity( intent1);
                     }
                 });
+
                 linearLayout.addView(childView,i);
                 ArrayList<String> textLists=new ArrayList<>();
                 textLists.add(jo.getString("name"));

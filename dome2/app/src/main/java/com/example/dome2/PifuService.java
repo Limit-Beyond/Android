@@ -14,6 +14,7 @@ public class PifuService extends Service {
 
     public String findOne(String id){
         try {
+            System.out.println("id思蜀        "  +id );
             HttpURLConnection urlConn = super.getConnect(FindOne+"?id="+id);
             urlConn.connect();
             if (urlConn.getResponseCode() == 200) {
@@ -30,6 +31,7 @@ public class PifuService extends Service {
 
     public String findAll(){
         try {
+            System.out.println("id思蜀      手段对付  " );
             HttpURLConnection urlConn = super.getConnect(FindAll);
             urlConn.connect();
             if (urlConn.getResponseCode() == 200) {

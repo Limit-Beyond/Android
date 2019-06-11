@@ -64,9 +64,30 @@ public class CdkDetail extends AppCompatActivity {
                 imageView.setImageResource(R.mipmap.game1+id);
                 break;
             case "pifu":
+                contentResolver.query(Uri.parse("content://666/PifuInfo/" + (id+1)), null, null, null, null);
+                JSONObject pifujo=JSONObject.parseObject(Provider.result);
+                textView2.setText("名称: "+pifujo.getString("name"));
+                textView3.setText("价格: "+pifujo.getString("price"));
+                textView4.setText("简介: "+pifujo.getString("intro"));
+                imageView.setImageResource(R.mipmap.skin1+id%9);
                 break;
             case "zhoubian":
+                contentResolver.query(Uri.parse("content://666/FindZhoubians/" + 1), null, null, null, null);
+                JSONObject zhoubianjo=JSONObject.parseObject(Provider.result);
+                textView2.setText("名称: "+zhoubianjo.getString("name"));
+                textView3.setText("价格: "+zhoubianjo.getString("price"));
+                textView4.setText("简介: "+zhoubianjo.getString("intro"));
+                imageView.setImageResource(R.mipmap.toy1+id);
                 break;
+            case "player":
+                contentResolver.query(Uri.parse("content://666/PlayerInfo/" + (id+1)), null, null, null, null);
+                JSONObject playerjo=JSONObject.parseObject(Provider.result);
+                textView2.setText("名称: "+playerjo.getString("name"));
+                textView3.setText("价格: "+playerjo.getString("price"));
+                textView4.setText("简介: "+playerjo.getString("intro"));
+                imageView.setImageResource(R.mipmap.toy1+id);
+                break;
+
                 default:
                     break;
 

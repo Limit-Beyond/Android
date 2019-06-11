@@ -1,6 +1,7 @@
 package com.example.dome2;
 
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -41,7 +42,6 @@ public class ZhoubianActivity extends AppCompatActivity  implements View.OnClick
         try {
 
             JSONArray ja = JSONArray.parseArray(Provider.result);
-            System.out.println("大爱电视为   "+ja.size());
             for(int i=0;i<ja.size();i++){
                 JSONObject jo=ja.getJSONObject(i);
 
@@ -51,7 +51,23 @@ public class ZhoubianActivity extends AppCompatActivity  implements View.OnClick
                 System.out.println(jo.getString("price"));
                 //测试
 
-                LinearLayout childView = (LinearLayout) LayoutInflater.from(ZhoubianActivity.this).inflate(R.layout.item, null);
+                final LinearLayout childView = (LinearLayout) LayoutInflater.from(ZhoubianActivity.this).inflate(R.layout.item, null);
+
+                childView.setId(i);
+                childView.setOnClickListener(new View.OnClickListener(){
+
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent1=new Intent(ZhoubianActivity.this,CdkDetail.class);
+                        Bundle data = new Bundle();
+                        data.putInt("id",childView.getId());
+                        data.putString("type","zhoubian");
+                        intent1.putExtra("data",data);
+                        startActivity( intent1);
+                    }
+                });
+
+
                 linearLayout.addView(childView,i);
                 ArrayList<String> textLists=new ArrayList<>();
                 textLists.add(jo.getString("name"));
