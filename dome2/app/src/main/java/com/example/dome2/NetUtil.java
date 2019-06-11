@@ -1,4 +1,4 @@
-package com.example.sz.exam;
+package com.example.dome2;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

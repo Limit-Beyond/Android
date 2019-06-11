@@ -1,4 +1,4 @@
-package com.example.sz.exam;
+package com.example.dome2;
 
 import android.app.usage.NetworkStats;
 import android.content.BroadcastReceiver;
@@ -20,5 +20,11 @@ public class NetBroadcastReceiver extends BroadcastReceiver {
             if(netStatusMonitor!=null)
                 netStatusMonitor.onNetChange(netStatus);
         }
+    }
+    /**
+     * 设置网络状态监听接口
+     */
+    public void setStatusMonitor(NetStatusMonitor netStatusMonitor) {
+        this.netStatusMonitor = netStatusMonitor;
     }
 }
