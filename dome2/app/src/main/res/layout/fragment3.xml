@@ -1,28 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
-    android:background="@color/bk3"
     android:layout_width="match_parent"
-    android:layout_height="400dp">
+    android:layout_height="455dp"
+    >
 
     <ScrollView
-        android:id="@+id/mains"
+        android:id="@+id/mainScroll"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_weight="0"
-        android:background="@color/bk1"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-
-
         <LinearLayout
-            android:id="@+id/OrderFatherView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:id="@+id/cardlist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical">
+
+            <LinearLayout
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:orientation="vertical"
+            android:background="@color/bk3">
+
+            <LinearLayout
+                android:id="@+id/cardtop"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/dnf"/>
+
+                <TextView
+                    android:id="@+id/blank"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="   " />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="物品名称"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/carddown"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/fashou"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:text="发售"
+                    />
+                <Button
+                    android:id="@+id/zhuanrang"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:text="转让"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/cardblank"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/bk3"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
 
 
         </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
 
 
     </ScrollView>
