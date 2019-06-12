@@ -27,6 +27,8 @@ public class Fragment3 extends Fragment {
 @Override
 public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        Intent intent=new Intent(getActivity(),SaleActivity.class);
+        startActivity(intent);
 //        textView=(TextView)getActivity().findViewById(R.id.textView3);
 //        button=(Button)getActivity().findViewById(R.id.button3);
 //        button.setOnClickListener(new View.OnClickListener() {

@@ -48,7 +48,7 @@ public class PlayerActivity extends AppCompatActivity  implements View.OnClickLi
                             Intent intent=new Intent(PlayerActivity.this,Playerdetail.class);
                             Bundle data = new Bundle();
                             data.putInt("id",childView.getId());
-                            data.putString("type","player");
+                            data.putString("type","陪玩");
                             intent.putExtra("data",data);
                             startActivity(intent);
                         }

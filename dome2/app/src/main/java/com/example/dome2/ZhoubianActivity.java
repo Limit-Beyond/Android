@@ -61,7 +61,7 @@ public class ZhoubianActivity extends AppCompatActivity  implements View.OnClick
                         Intent intent1=new Intent(ZhoubianActivity.this,CdkDetail.class);
                         Bundle data = new Bundle();
                         data.putInt("id",childView.getId());
-                        data.putString("type","zhoubian");
+                        data.putString("type","周边");
                         intent1.putExtra("data",data);
                         startActivity( intent1);
                     }

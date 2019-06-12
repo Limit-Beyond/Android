@@ -56,7 +56,7 @@ public class PifuActivity extends AppCompatActivity  implements View.OnClickList
                        Intent intent1=new Intent(PifuActivity.this,CdkDetail.class);
                        Bundle data = new Bundle();
                        data.putInt("id",childView.getId());
-                       data.putString("type","pifu");
+                       data.putString("type","皮肤");
                        intent1.putExtra("data",data);
                        startActivity( intent1);
                    }

@@ -46,7 +46,7 @@ public class OrderActivity extends AppCompatActivity  implements View.OnClickLis
         contentResolver = getApplicationContext().getContentResolver();
         linearLayout=findViewById(R.id.OrderFatherView);
 
-        contentResolver.query(Uri.parse("content://666/FindOrders/"+customer_id),null,null,null,null);
+        contentResolver.query(Uri.parse("content://666/FindOrders/"+1),null,null,null,null);
         try {
             JSONArray ja = JSONArray.parseArray(Provider.result);
             for(int i=0;i<ja.size();i++){

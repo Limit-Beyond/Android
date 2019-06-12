@@ -83,7 +83,7 @@ public class CdkActivity extends AppCompatActivity  implements View.OnClickListe
                         Intent intent1=new Intent(CdkActivity.this,CdkDetail.class);
                         Bundle data = new Bundle();
                         data.putInt("id",childView.getId());
-                        data.putString("type","cdk");
+                        data.putString("type","CDK");
                         intent1.putExtra("data",data);
                         startActivity( intent1);
                     }
