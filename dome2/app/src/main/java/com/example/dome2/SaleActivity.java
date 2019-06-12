@@ -59,7 +59,7 @@ public class SaleActivity extends AppCompatActivity  implements View.OnClickList
                 ArrayList<String> textLists=new ArrayList<>();
                 textLists.add(jo.getString("name"));
                 textLists.add("价格:"+jo.getString("price"));
-                textLists.add("销售情况:"+jo.getString("isSaled"));
+                textLists.add(jo.getString("isSaled"));
                 ImageView imageView=childView.findViewWithTag("imgeTitle");
                 imageView.setImageResource(R.mipmap.toy1+i%7);
                 SetValues(childView,tagNames,textLists);

@@ -22,7 +22,7 @@
 
             <TextView
                 android:id="@+id/blank"
-                android:layout_width="100dp"
+                android:layout_width="99dp"
                 android:layout_height="50dp"
                 android:gravity="center"
                 android:text="   " />
@@ -33,12 +33,13 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:tag="NameTitle"
                     android:layout_width="110dp"
                     android:layout_height="50dp"
                     android:gravity="center"
+                    android:tag="NameTitle"
                     android:text="物品名称"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:tag="PriceTitle"

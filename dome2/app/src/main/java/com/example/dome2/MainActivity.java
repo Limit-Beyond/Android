@@ -139,12 +139,14 @@ public void  Notification( ){
 //                }
                 case R.id.id3:
                 {
-                    if(lastfragment!=2)
-                    {
-                        switchFragment(lastfragment,2);
-                        lastfragment=2;
-
-                    }
+//                    if(lastfragment!=2)
+//                    {
+//                        switchFragment(lastfragment,2);
+//                        lastfragment=2;
+//
+//                    }
+                    Intent intent =new Intent(MainActivity.this,SaleActivity.class);
+                    startActivity(intent);
 
 
 
