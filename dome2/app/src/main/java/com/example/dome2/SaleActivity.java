@@ -34,8 +34,6 @@ public class SaleActivity extends AppCompatActivity  implements View.OnClickList
 
     }
 
-
-
     @Override
     public void onClick(View view) {
         int vid = view.getId();

@@ -1,120 +1,77 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="450dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginLeft="8dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginEnd="8dp"
-    android:layout_marginRight="8dp"
-    android:layout_weight="1"
-    android:background="#ffffff"
-    android:orientation="vertical"
-    android:padding="10dp"
-    app:layout_constraintEnd_toEndOf="parent">
+    android:layout_height="match_parent" >
 
-
-    <LinearLayout
-        android:id="@+id/cardmain"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="351dp"
-        android:orientation="horizontal">
+        android:layout_height="300dip" >
 
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
         <LinearLayout
-            android:id="@+id/cardin3"
             android:layout_width="match_parent"
-            android:layout_height="185dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/cardin21"
-                android:layout_width="170dp"
-                android:layout_height="180dp"
-                android:background="@color/bk3"
-                android:orientation="vertical">
-
-
-                <ImageView
-                    android:id="@+id/cardin21img"
-                    android:layout_width="match_parent"
-                    android:layout_height="125dp"
-                    android:src="@mipmap/dnf" />
-
-                <TextView
-                    android:id="@+id/cardin21txt"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:gravity="center"
-                    android:text="毒奶粉天下第一"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/cardin22"
-                android:layout_width="170dp"
-                android:layout_height="180dp"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/cardin22img"
-                    android:layout_width="match_parent"
-                    android:layout_height="125dp"
-                    android:src="@mipmap/dnf" />
-
-                <TextView
-                    android:id="@+id/cardin22txt"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:gravity="center"
-                    android:text="毒奶粉天下第一"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/upbtnview"
-        android:layout_width="match_parent"
-        android:layout_height="67dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/upbtn"
-            style="@android:style/Widget.Button"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_margin="5dp"
-            android:background="@color/bk1"
+            android:layout_height="35dip"
+            android:layout_gravity="bottom"
+            android:background="#33000000"
             android:gravity="center"
-            android:text="分享"
-            android:textSize="18sp"
-            tools:layout_editor_absoluteX="26dp"
-            tools:layout_editor_absoluteY="0dp" />
+            android:orientation="vertical" >
 
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="图片标题"
+                android:textColor="@android:color/white" />
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dip"
+                android:orientation="horizontal" >
 
+                <View
+                    android:id="@+id/dot_0"
+                    android:layout_width="5dip"
+                    android:layout_height="5dip"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="2dip"
+                    android:background="@mipmap/dot_yes"/>
 
-    </LinearLayout>
+                <View
+                    android:id="@+id/dot_1"
+                    android:layout_width="5dip"
+                    android:layout_height="5dip"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="2dip"
+                    android:background="@mipmap/dot_no"/>
+                <View
+                    android:id="@+id/dot_2"
+                    android:layout_width="5dip"
+                    android:layout_height="5dip"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="2dip"
+                    android:background="@mipmap/dot_no"/>
+                <View
+                    android:id="@+id/dot_3"
+                    android:layout_width="5dip"
+                    android:layout_height="5dip"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="2dip"
+                    android:background="@mipmap/dot_no"/>
+                <View
+                    android:id="@+id/dot_4"
+                    android:layout_width="5dip"
+                    android:layout_height="5dip"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="2dip"
+                    android:background="@mipmap/dot_no"/>
 
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
 
-
-
-
-
-
-
-
-
-
-
-
+</RelativeLayout>
