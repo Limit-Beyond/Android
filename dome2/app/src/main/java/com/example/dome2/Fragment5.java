@@ -1,4 +1,5 @@
 package com.example.dome2;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -53,7 +54,7 @@ import java.util.concurrent.TimeUnit;
  * Created by Administrator on 2016/7/13.
  */
 public class Fragment5 extends Fragment {
-
+    private ImageView imageView;
     private View mView;
     private ViewPager mViewPaper;
     private List<ImageView> images;
@@ -89,6 +90,7 @@ public class Fragment5 extends Fragment {
         setView();
         return mView;
     }
+
 
     private void setView() {
         mViewPaper = (ViewPager) mView.findViewById(R.id.vp);
@@ -220,6 +222,7 @@ public class Fragment5 extends Fragment {
             scheduledExecutorService = null;
         }
     }
+
 }
 
 

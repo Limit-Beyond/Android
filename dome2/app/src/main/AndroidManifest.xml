@@ -41,6 +41,7 @@
         <activity android:name=".TermActivity"/>
         <activity android:name=".CreateTermActivity"/>
         <activity android:name=".MyTermActivity"/>
+        <activity android:name=".Ruanwen"/>
 
 
 
