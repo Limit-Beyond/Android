@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".TermActivity"
+    >
+
+    <TextView
+        android:onClick="setType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:id="@+id/lol"
+        android:tag="lol"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:text="LOL"
+        android:textColor="#666666"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:onClick="setType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:tag="dnf"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:id="@+id/dnf"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:text="DNF"
+        android:textColor="#666666"
+        android:textSize="14sp"/>
+
+
+</LinearLayout>

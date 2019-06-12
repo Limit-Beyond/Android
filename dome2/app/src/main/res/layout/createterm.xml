@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainpage"    >
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bgclr"
+        android:orientation="vertical"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".CreateTermActivity">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:layout_marginBottom="2dp">
+            <Button
+                android:background="@color/white"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/cancel"
+                android:layout_height="fill_parent"
+                android:id="@+id/cancel"
+                />
+            <Button
+                android:background="@color/white"
+                android:layout_width="0dp"
+                android:layout_weight="10"
+                android:layout_height="fill_parent"
+                android:text="创建组队"
+                />
+            <Button
+                android:background="@color/white"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/save"
+                android:layout_height="fill_parent"
+                android:id="@+id/save"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:id="@+id/title"
+            android:background="@color/white"
+            android:layout_marginBottom="2dp">
+            <Button
+
+                android:background="@color/white"
+                android:layout_width="0dp"
+                android:layout_weight="0"
+                android:layout_height="match_parent"
+                android:text=""
+                />
+
+            <EditText
+                android:background="@color/white"
+                android:clickable="true"
+                android:id="@+id/inputTitle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:text=""
+                android:hint="请输入组队标题"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+
+            android:layout_marginBottom="2dp">
+            <Button
+
+                android:background="@color/white"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+
+                android:text="开始时间"
+                />
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:background="@color/white"
+                android:layout_height="wrap_content"
+                android:textColor="@color/content"
+                android:text="DatePickerDialog"
+                android:id="@+id/datepicker"
+                />
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/more"
+                android:layout_height="fill_parent"
+                android:textColor="@color/content"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+
+            android:layout_marginBottom="2dp">
+            <Button
+
+                android:background="@color/white"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+
+                android:text="游戏类型"
+                />
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:background="@color/white"
+                android:layout_height="wrap_content"
+                android:textColor="@color/content"
+                android:text="LOL"
+                android:id="@+id/frequent"
+                />
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/more"
+                android:layout_height="fill_parent"
+                android:textColor="@color/content"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+
+            android:layout_marginBottom="2dp">
+            <Button
+
+                android:background="@color/white"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+
+                android:text="最低RANK"
+                />
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:background="@color/white"
+                android:layout_height="wrap_content"
+                android:textColor="@color/content"
+                android:text="白银"
+                android:id="@+id/notice"
+                />
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/more"
+                android:layout_height="fill_parent"
+                android:textColor="@color/content"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+
+            android:layout_marginBottom="2dp"
+            android:background="@color/white">
+            <Button
+
+                android:background="@color/white"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+
+                android:text="时间"
+                />
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:background="@color/white"
+                android:layout_height="wrap_content"
+                android:textColor="@color/content"
+                android:hint="HH"
+                android:id="@+id/hour"
+                />
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:background="@color/white"
+                android:layout_height="wrap_content"
+                android:textColor="@color/content"
+                android:hint="MM"
+                android:id="@+id/minute"
+                />
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:background="@color/white"
+                android:layout_height="wrap_content"
+                android:textColor="@color/content"
+                android:hint="SS"
+                android:id="@+id/second"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+
+            android:layout_marginBottom="2dp"
+            android:background="@color/white">
+            <Button
+
+                android:background="@color/white"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+
+                android:text="需求人数"
+                />
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="6"
+                android:background="@color/white"
+                android:layout_height="wrap_content"
+                android:textColor="@color/content"
+                android:gravity="center"
+                android:text="5"
+                android:id="@+id/need"
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

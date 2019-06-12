@@ -32,16 +32,21 @@ public class Provider extends ContentProvider {
         uriMatcher.addURI("666","FindSales/#", TYPES.FINDSALES.ordinal());
         uriMatcher.addURI("666","SaleInfo", TYPES.SALEINFO.ordinal());
         uriMatcher.addURI("666","FindZhoubians/#", TYPES.FINDZHOUBIANS.ordinal());
-        uriMatcher.addURI("666","ZhoubianInfo", TYPES.ZHOUBIANINFO.ordinal());
+        uriMatcher.addURI("666","ZhoubianInfo/#", TYPES.ZHOUBIANINFO.ordinal());
         uriMatcher.addURI("666","FindPifus/#", TYPES.FINDPIFUS.ordinal());
         uriMatcher.addURI("666","PifuInfo/#", TYPES.PIFUINFO.ordinal());
         uriMatcher.addURI("666","FindPlayers/#", TYPES.FINDPLAYERS.ordinal());
         uriMatcher.addURI("666","PlayerInfo/#", TYPES.PLAYERINFO.ordinal());
 
-
         uriMatcher.addURI("666","AddOrder", TYPES.ADDORDER.ordinal());
         uriMatcher.addURI("666","AddSale", TYPES.ADDSALE.ordinal());
         uriMatcher.addURI("666","DeleteSale", TYPES.DELETESALE.ordinal());
+        uriMatcher.addURI("666","TermList/#", TYPES.FINDTERMS.ordinal());
+        uriMatcher.addURI("666","MyTerm/#", TYPES.FINDMYTERM.ordinal());
+        uriMatcher.addURI("666","JoinTerm", TYPES.JOINTERM.ordinal());
+        uriMatcher.addURI("666","MyTerm", TYPES.FINDMYTERM.ordinal());
+        uriMatcher.addURI("666","LeaveTerm", TYPES.LEAVETERM.ordinal());
+        uriMatcher.addURI("666","CreateTerm", TYPES.CREATETERM.ordinal());
         return false;
     }
 
@@ -56,119 +61,71 @@ public class Provider extends ContentProvider {
                 e.printStackTrace();
             }
         }
-        if((long)id!=-1){
-            ThreadA a = new ThreadA(service,t,String.valueOf((long)id));
-            Thread thread = new Thread(a);
-            thread.start();
-            while(!a.isCompleted()){}
-            Provider.result = a.getResult();
-        }else{
-            ThreadA a = new ThreadA(service,t);
-            Thread thread = new Thread(a);
-            thread.start();
-            while(!a.isCompleted()){}
-            Provider.result = a.getResult();
-        }
-
-
+        ThreadA a = new ThreadA(service,t,String.valueOf(id));
+        Thread thread = new Thread(a);
+        thread.start();
+        while(!a.isCompleted()){}
+        Provider.result = a.getResult();
     }
 
     @Nullable
     @Override
     public Cursor query(Uri uri, String[] strings, String s, String[] strings1, String s1) {
-     
+
+        Object id ;
         int code=uriMatcher.match(uri);
+        try {
+            id = ContentUris.parseId(uri);
+        }
+        catch (Exception e){
+            id = 1;
+        }
+
         TYPES t[]  =  TYPES.values();
-
-        Object idtmp=(Object)(new Long(-1));
         TYPES tt = t[code];
-        switch (tt) {
-            case CDKINFO:
-                doSomeThing(CdkService.class,TYPE.TypeEnum.FINDALL,idtmp);
-                return null;
-            case ORDERINFO:
-                doSomeThing(OrderService.class,TYPE.TypeEnum.FINDALL,idtmp);
-                return null;
-            case ZHOUBIANINFO:
-                doSomeThing(ZhoubianService.class,TYPE.TypeEnum.FINDALL,idtmp);
-                return null;
-            case SALEINFO:
-                doSomeThing(SaleService.class,TYPE.TypeEnum.FINDALL,idtmp);
-                return null;
-            default:
-                break;
-        }
-
-
-        long id= ContentUris.parseId(uri);
-        idtmp=(Object)(new Long(id));
 
         switch (tt) {
-            case PLAYERINFO:
-                doSomeThing(PlayerService.class,TYPE.TypeEnum.FINDONE,idtmp);
-                return null;
             case FINDCDKS:
-                doSomeThing(CdkService.class,TYPE.TypeEnum.FINDONE,idtmp);
+                doSomeThing(CdkService.class,TYPE.TypeEnum.FINDONE,id);
                 return null;
-            case PIFUINFO:
-                doSomeThing(PifuService.class,TYPE.TypeEnum.FINDONE,idtmp);
-                return null;
+            case CDKINFO:
+                break;
             case FINDORDERS:
-                doSomeThing(OrderService.class,TYPE.TypeEnum.FINDONE,idtmp);
-                return null;
+                doSomeThing(OrderService.class,TYPE.TypeEnum.FINDONE,id);
+                break;
+            case ORDERINFO:
+                break;
             case FINDPIFUS:
-                doSomeThing(PifuService.class,TYPE.TypeEnum.FINDALL,idtmp);
-                return null;
+                doSomeThing(PifuService.class,TYPE.TypeEnum.FINDALL,id);
+                break;
+            case PIFUINFO:
+                doSomeThing(PifuService.class,TYPE.TypeEnum.FINDONE,id);
+                break;
             case FINDZHOUBIANS:
-                doSomeThing(ZhoubianService.class,TYPE.TypeEnum.FINDONE,idtmp);
-                return null;
+                doSomeThing(ZhoubianService.class,TYPE.TypeEnum.FINDALL,id);
+                break;
+            case ZHOUBIANINFO:
+                doSomeThing(ZhoubianService.class,TYPE.TypeEnum.FINDONE,id);
+                break;
             case FINDSALES:
-                doSomeThing(SaleService.class,TYPE.TypeEnum.FINDALL,idtmp);
-                return null;
+                doSomeThing(SaleService.class,TYPE.TypeEnum.FINDALL,id);
+                break;
+            case SALEINFO:
+                break;
             case FINDPLAYERS:
-                doSomeThing(PlayerService.class,TYPE.TypeEnum.FINDALL,idtmp);
-                return null;
-            default:
+                doSomeThing(PlayerService.class,TYPE.TypeEnum.FINDALL,id);
+                break;
+            case PLAYERINFO:
+                doSomeThing(PlayerService.class,TYPE.TypeEnum.FINDONE,id);
+                break;
+            case FINDTERMS:
+                doSomeThing(TermService.class,TYPE.TypeEnum.FINDONE,s);
+                break;
+            case FINDMYTERM:
+                doSomeThing(TermService.class,TYPE.TypeEnum.MINE,s);
                 break;
 
         }
-
-
-
-//        switch (tt) {
-//            case FINDCDKS:
-//                doSomeThing(CdkService.class,TYPE.TypeEnum.FINDONE,id);
-//                return null;
-//            case CDKINFO:
-//                //更改位置
-//                doSomeThing(CdkService.class,TYPE.TypeEnum.FINDALL,-1);
-//                break;
-//            case FINDORDERS:
-//                doSomeThing(OrderService.class,TYPE.TypeEnum.FINDONE,id);
-//                break;
-//            case ORDERINFO:
-//                break;
-//            case FINDPIFUS:
-//                doSomeThing(PifuService.class,TYPE.TypeEnum.FINDALL,id);
-//                break;
-//            case PIFUINFO:
-//                break;
-//            case FINDZHOUBIANS:
-//                doSomeThing(ZhoubianService.class,TYPE.TypeEnum.FINDALL,id);
-//                break;
-//            case ZHOUBIANINFO:
-//                break;
-//            case FINDSALES:
-//                doSomeThing(SaleService.class,TYPE.TypeEnum.FINDALL,id);
-//                break;
-//            case SALEINFO:
-//                break;
-//            case FINDPLAYERS:
-//                doSomeThing(PlayerService.class,TYPE.TypeEnum.FINDALL,id);
-//                break;
-//            case PLAYERINFO:
-//                break;
-//        }
         return null;
     }
 
@@ -216,6 +173,26 @@ public class Provider extends ContentProvider {
                 }
                 doSomeThing(OrderService.class,TYPE.TypeEnum.INSERTONE,data);
                 break;
+            case JOINTERM:
+                data = "?cid=" + contentValues.get("cid") ;
+                for(String key : contentValues.keySet()){
+                    if(key.equals("cid"))
+                        continue;
+                    data+="&"+key+"="+contentValues.get(key);
+                }
+                doSomeThing(TermService.class,TYPE.TypeEnum.JOIN,data);
+                break;
+            case CREATETERM:
+                data = "?cid=" + contentValues.get("cid") ;
+                for(String key : contentValues.keySet()){
+                    if(key.equals("cid"))
+                        continue;
+                    data+="&"+key+"="+contentValues.get(key);
+                }
+                Log.i("IDODODDOODD",data);
+                doSomeThing(TermService.class,TYPE.TypeEnum.INSERTONE,data);
+                break;
+
 
         }
         return null;
@@ -235,10 +212,12 @@ public class Provider extends ContentProvider {
         TYPES t[]  =  TYPES.values();
         TYPES tt = t[code];
 
-        String data;
         switch (tt) {
             case DELETESALE:
                 doSomeThing(OrderService.class,TYPE.TypeEnum.DELETEONE,id);
+                break;
+            case LEAVETERM:
+                doSomeThing(TermService.class,TYPE.TypeEnum.DELETEONE,s);
                 break;
 
         }

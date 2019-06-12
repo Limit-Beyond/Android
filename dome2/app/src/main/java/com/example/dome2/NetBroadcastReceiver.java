@@ -21,10 +21,4 @@ public class NetBroadcastReceiver extends BroadcastReceiver {
                 netStatusMonitor.onNetChange(netStatus);
         }
     }
-    /**
-     * 设置网络状态监听接口
-     */
-    public void setStatusMonitor(NetStatusMonitor netStatusMonitor) {
-        this.netStatusMonitor = netStatusMonitor;
-    }
 }

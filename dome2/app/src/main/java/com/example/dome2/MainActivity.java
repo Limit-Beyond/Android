@@ -125,14 +125,15 @@ public void  Notification( ){
                 }
                 case R.id.id2:
                 {
+                    
                     if(lastfragment!=1)
                     {
                         switchFragment(lastfragment,1);
                         lastfragment=1;
 
                     }
-
                     return true;
+
                 }
                 case R.id.id3:
                 {
@@ -142,6 +143,8 @@ public void  Notification( ){
                         lastfragment=2;
 
                     }
+
+
 
                     return true;
                 }
@@ -158,12 +161,15 @@ public void  Notification( ){
                 }
                 case R.id.id5:
                 {
-                    if(lastfragment!=4)
-                    {
-                        switchFragment(lastfragment,4);
-                        lastfragment=4;
+//                    if(lastfragment!=4)
+//                    {
+//                        switchFragment(lastfragment,4);
+//                        lastfragment=4;
+//
+//                    }
+                    Intent intent =new Intent(MainActivity.this,TermActivity.class);
+                    startActivity(intent);
 
-                    }
 
                     return true;
                 }

@@ -37,8 +37,8 @@ public class ZhoubianActivity extends AppCompatActivity  implements View.OnClick
 
 
         linearLayout=findViewById(R.id.ToyFatherView);
-//        contentResolver.query(Uri.parse("content://666/FindZhoubians/1"),null,null,null,null);
-        contentResolver.query(Uri.parse("content://666/ZhoubianInfo"),null,null,null,null);
+        contentResolver.query(Uri.parse("content://666/FindZhoubians/1"),null,null,null,null);
+//        contentResolver.query(Uri.parse("content://666/ZhoubianInfo"),null,null,null,null);
         try {
 
             JSONArray ja = JSONArray.parseArray(Provider.result);

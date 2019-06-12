@@ -10,7 +10,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Service  {
-
+    //6.13日新增
+    public String join(String data){
+        return null;
+    }
+    public String mine(String cid){
+        return null;
+    }
     //6.11日新增
     public String Detail(String id){
         return null;

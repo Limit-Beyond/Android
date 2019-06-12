@@ -3,8 +3,10 @@ package com.example.dome2;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -72,7 +74,8 @@ public class CdkDetail extends AppCompatActivity {
                 imageView.setImageResource(R.mipmap.skin1+id%9);
                 break;
             case "zhoubian":
-                contentResolver.query(Uri.parse("content://666/FindZhoubians/" + 1), null, null, null, null);
+                contentResolver.query(Uri.parse("content://666/ZhoubianInfo/" + (id+1)), null, null, null, null);
+                Log.i("UFUFUUFF",Provider.result);
                 JSONObject zhoubianjo=JSONObject.parseObject(Provider.result);
                 textView2.setText("名称: "+zhoubianjo.getString("name"));
                 textView3.setText("价格: "+zhoubianjo.getString("price"));
