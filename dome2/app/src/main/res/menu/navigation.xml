@@ -7,11 +7,11 @@
         android:id="@+id/id1"
         android:icon="@mipmap/ic_mainpage"
         />
-    <item
-        android:id="@+id/id2"
-        android:title="订单"
-        android:icon="@mipmap/ic_dingdan"
-        />
+    <!--<item-->
+        <!--android:id="@+id/id2"-->
+        <!--android:title="订单"-->
+        <!--android:icon="@mipmap/ic_dingdan"-->
+        <!--/>-->
     <item
         android:title="发现"
         android:id="@+id/id5"

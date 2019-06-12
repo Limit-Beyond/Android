@@ -243,7 +243,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/dingdan"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="70dp"
@@ -258,14 +258,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="52dp"
-            android:layout_marginLeft="52dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="40dp"
-            android:text="购买记录"
+            android:text="订单查询"
             android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@+id/divider2"
             app:layout_constraintStart_toEndOf="@+id/textView9"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+            app:layout_constraintTop_toBottomOf="@+id/dingdan" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -274,20 +271,19 @@
             android:layout_marginStart="70dp"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="16dp"
-            app:layout_constraintStart_toEndOf="@+id/imageView4"
+            app:layout_constraintStart_toEndOf="@+id/dingdan"
             app:layout_constraintTop_toBottomOf="@+id/divider"
             app:srcCompat="@mipmap/goumai" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/zudui"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider"
-            app:srcCompat="@mipmap/tongji" />
+            app:srcCompat="@mipmap/queue" />
 
         <TextView
             android:id="@+id/textView11"
@@ -309,14 +305,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="40dp"
-            android:text="数据统计"
+            android:text="快速组队"
             android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/divider2"
             app:layout_constraintStart_toEndOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/imageView7"
+            app:layout_constraintTop_toBottomOf="@+id/zudui"
             app:layout_constraintVertical_bias="0.0" />
 
         <ImageView

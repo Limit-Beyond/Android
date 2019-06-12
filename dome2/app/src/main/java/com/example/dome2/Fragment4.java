@@ -38,6 +38,25 @@ public class Fragment4 extends Fragment {
                startActivity(intent);
             }
         });
+
+        imageView=(ImageView)getActivity().findViewById(R.id.zudui);
+        imageView.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),TermActivity.class);
+                startActivity(intent);
+            }
+        });
+        imageView=(ImageView)getActivity().findViewById(R.id.dingdan);
+        imageView.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),OrderActivity.class);
+                startActivity(intent);
+            }
+        });
         //textView=(TextView)getActivity().findViewById(R.id.textView3);
         //button=(Button)getActivity().findViewById(R.id.login1);
 //        button.setOnClickListener(new View.OnClickListener() {
