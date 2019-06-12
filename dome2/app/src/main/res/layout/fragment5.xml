@@ -1,77 +1,408 @@
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="300dip" >
+        android:layout_height="200dp">
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/vp"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="200dp">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dip"
+                android:layout_gravity="bottom"
+                android:background="#33000000"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="图片标题"
+                    android:textColor="@android:color/white" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dip"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/dot_0"
+                        android:layout_width="5dip"
+                        android:layout_height="5dip"
+                        android:layout_marginLeft="2dip"
+                        android:layout_marginRight="2dip"
+                        android:background="@mipmap/dot_yes" />
+
+                    <View
+                        android:id="@+id/dot_1"
+                        android:layout_width="5dip"
+                        android:layout_height="5dip"
+                        android:layout_marginLeft="2dip"
+                        android:layout_marginRight="2dip"
+                        android:background="@mipmap/dot_no" />
+
+                    <View
+                        android:id="@+id/dot_2"
+                        android:layout_width="5dip"
+                        android:layout_height="5dip"
+                        android:layout_marginLeft="2dip"
+                        android:layout_marginRight="2dip"
+                        android:background="@mipmap/dot_no" />
+
+                    <View
+                        android:id="@+id/dot_3"
+                        android:layout_width="5dip"
+                        android:layout_height="5dip"
+                        android:layout_marginLeft="2dip"
+                        android:layout_marginRight="2dip"
+                        android:background="@mipmap/dot_no" />
+
+                    <View
+                        android:id="@+id/dot_4"
+                        android:layout_width="5dip"
+                        android:layout_height="5dip"
+                        android:layout_marginLeft="2dip"
+                        android:layout_marginRight="2dip"
+                        android:background="@mipmap/dot_no" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="35dip"
-            android:layout_gravity="bottom"
-            android:background="#33000000"
-            android:gravity="center"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="图片标题"
-                android:textColor="@android:color/white" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dip"
-                android:orientation="horizontal" >
+                android:id="@+id/card"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/bk3"
+                android:orientation="horizontal">
 
-                <View
-                    android:id="@+id/dot_0"
-                    android:layout_width="5dip"
-                    android:layout_height="5dip"
-                    android:layout_marginLeft="2dip"
-                    android:layout_marginRight="2dip"
-                    android:background="@mipmap/dot_yes"/>
+                <LinearLayout
+                    android:id="@+id/leftblank"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-                <View
-                    android:id="@+id/dot_1"
-                    android:layout_width="5dip"
-                    android:layout_height="5dip"
-                    android:layout_marginLeft="2dip"
-                    android:layout_marginRight="2dip"
-                    android:background="@mipmap/dot_no"/>
-                <View
-                    android:id="@+id/dot_2"
-                    android:layout_width="5dip"
-                    android:layout_height="5dip"
-                    android:layout_marginLeft="2dip"
-                    android:layout_marginRight="2dip"
-                    android:background="@mipmap/dot_no"/>
-                <View
-                    android:id="@+id/dot_3"
-                    android:layout_width="5dip"
-                    android:layout_height="5dip"
-                    android:layout_marginLeft="2dip"
-                    android:layout_marginRight="2dip"
-                    android:background="@mipmap/dot_no"/>
-                <View
-                    android:id="@+id/dot_4"
-                    android:layout_width="5dip"
-                    android:layout_height="5dip"
-                    android:layout_marginLeft="2dip"
-                    android:layout_marginRight="2dip"
-                    android:background="@mipmap/dot_no"/>
+                    <TextView
+                        android:layout_width="5dp"
+                        android:layout_height="match_parent"
+                        android:text="  "/>
+
+                    <LinearLayout
+                    android:id="@+id/left"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:text="任天堂发布会汇总 《塞尔达：旷野之息》续作开发中"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:text="  收藏：7"
+                        android:textAppearance="@style/TextAppearance.AppCompat"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:text=""
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cardright"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent" />
+
+                    <ImageView
+                        android:layout_width="126dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/sai" />
+
+
+                </LinearLayout>
 
             </LinearLayout>
-        </LinearLayout>
-    </FrameLayout>
+            <View
+                android:id="@+id/fen"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+            <LinearLayout
+                android:id="@+id/card1"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/bk3"
+                android:orientation="horizontal">
 
-</RelativeLayout>
+                <LinearLayout
+                    android:id="@+id/leftblank1"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="5dp"
+                        android:layout_height="match_parent"
+                        android:text="  "/>
+
+                    <LinearLayout
+                        android:id="@+id/left1"
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"
+                            android:text=""
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:text="《看门狗：军团》明年发售 育碧E3发布会汇总"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:text="  收藏：12"
+                            android:textAppearance="@style/TextAppearance.AppCompat"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"
+                            android:text=""
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cardright1"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent" />
+
+                    <ImageView
+                        android:layout_width="126dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/yu" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <View
+                android:id="@+id/fen1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+            <LinearLayout
+                android:id="@+id/card2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/bk3"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/leftblank2"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="5dp"
+                        android:layout_height="match_parent"
+                        android:text="  "/>
+
+                    <LinearLayout
+                        android:id="@+id/left2"
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"
+                            android:text=""
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:text="保守？固执？不懂得改变？【想法分享】任天堂篇 E3 2019"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:text="  收藏：88"
+                            android:textAppearance="@style/TextAppearance.AppCompat"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"
+                            android:text=""
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cardright2"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent" />
+
+                    <ImageView
+                        android:layout_width="126dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/ren" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <View
+                android:id="@+id/fen2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+            <LinearLayout
+                android:id="@+id/fen3"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/bk3"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/leftblank3"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="5dp"
+                        android:layout_height="match_parent"
+                        android:text="  "/>
+
+                    <LinearLayout
+                        android:id="@+id/left3"
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"
+                            android:text=""
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:text="PC游戏展汇总 《莎木3》确认Epic商城独占"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:text="  收藏：4"
+                            android:textAppearance="@style/TextAppearance.AppCompat"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"
+                            android:text=""
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cardright3"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent" />
+
+                    <ImageView
+                        android:layout_width="126dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/sha" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+

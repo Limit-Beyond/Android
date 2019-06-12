@@ -5,6 +5,13 @@
     android:layout_height="455dp"
     >
 
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:background="?android:attr/listDivider" />
+
     <ScrollView
         android:id="@+id/mainScroll"
         android:layout_width="match_parent"
@@ -17,68 +24,84 @@
             android:orientation="vertical">
 
             <LinearLayout
-            android:id="@+id/card"
-            android:layout_width="match_parent"
-            android:layout_height="210dp"
-            android:orientation="vertical"
-            android:background="@color/bk3">
-
-            <LinearLayout
-                android:id="@+id/cardtop"
+                android:id="@+id/card"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:src="@mipmap/dnf"/>
-
-                <TextView
-                    android:id="@+id/blank"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:gravity="center"
-                    android:text="   " />
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:gravity="center"
-                    android:text="物品名称"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/carddown"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-                <Button
-                    android:id="@+id/fashou"
-                    android:layout_width="180dp"
-                    android:layout_height="match_parent"
-                    android:text="发售"
-                    />
-                <Button
-                    android:id="@+id/zhuanrang"
-                    android:layout_width="180dp"
-                    android:layout_height="match_parent"
-                    android:text="转让"
-                    />
-
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/cardblank"
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
+                android:layout_height="200dp"
                 android:background="@color/bk3"
                 android:orientation="vertical">
 
+                <LinearLayout
+                    android:id="@+id/cardtop"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/dnf" />
+
+                    <TextView
+                        android:id="@+id/blank"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:text="   " />
+
+                    <LinearLayout
+                        android:layout_width="210dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="110dp"
+                            android:layout_height="50dp"
+                            android:gravity="center"
+                            android:text="物品名称"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title" />
+
+                        <TextView
+                            android:layout_width="110dp"
+                            android:layout_height="50dp"
+                            android:gravity="center"
+                            android:text="价格"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title" />
+
+                        <TextView
+                            android:layout_width="110dp"
+                            android:layout_height="50dp"
+                            android:gravity="center"
+                            android:text="未出售"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/carddown"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/fashou"
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:text="发售" />
+
+                    <Button
+                        android:id="@+id/zhuanrang"
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:text="转让" />
+
+                </LinearLayout>
+
+
             </LinearLayout>
-
-
-
-        </LinearLayout>
 
 
 

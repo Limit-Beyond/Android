@@ -71,11 +71,11 @@ public class Fragment5 extends Fragment {
     };
     //存放图片的标题
     private String[] titles = new String[]{
-            "轮播1",
-            "轮播2",
-            "轮播3",
-            "轮播4",
-            "轮播5"
+            "战地风云3预售发布",
+            "最终幻想7重置版本即将上线",
+            "量子破碎大受好评！！",
+            "劲舞团比赛火热进行中",
+            "梦幻之星宣布发售军曹套装"
     };
     private TextView title;
     private ViewPagerAdapter adapter;
