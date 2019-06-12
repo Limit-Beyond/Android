@@ -92,7 +92,7 @@ public class CdkActivity extends AppCompatActivity  implements View.OnClickListe
                 linearLayout.addView(childView,i);
                 ArrayList<String> textLists=new ArrayList<>();
                 textLists.add(jo.getString("name"));
-                textLists.add("价格:"+jo.getString("price").substring(0,jo.getString("price").indexOf("."))+"  ");
+                textLists.add("价格:"+jo.getString("price"));
                 textLists.add(String.valueOf(new Random().nextInt(10))+"件在售");
                 ImageView imageView=childView.findViewWithTag("imgeTitle");
                 imageView.setImageResource(R.mipmap.game1+i%7);

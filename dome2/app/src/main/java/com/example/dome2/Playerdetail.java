@@ -28,7 +28,8 @@ public class Playerdetail extends AppCompatActivity {
     TextView textView3=null;
     TextView textView4=null;
     ImageView imageView=null;
-    Button button1=null;//提交订单
+    Button button1=null;//私聊
+    Button button2=null;//提交订单
     LinearLayout linearLayout;
 
     @Override
@@ -40,6 +41,7 @@ public class Playerdetail extends AppCompatActivity {
         textView4=findViewById(R.id.textView4);
         imageView=findViewById(R.id.imageView);
         Button slbtn=(Button)findViewById(R.id.slbtn);
+        button2=(Button)findViewById(R.id.login1);
         //intent接收上个页面的数据 id
         final Intent intent = getIntent();
         Bundle data = intent.getBundleExtra("data");
@@ -56,6 +58,13 @@ public class Playerdetail extends AppCompatActivity {
         imageView.setImageResource(R.mipmap.character3+id%7);
 
 
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1=new Intent(Playerdetail.this,MainActivity.class);
+                startActivity(intent1);
+            }
+        });
 
 
         slbtn.setOnClickListener(new View.OnClickListener() {

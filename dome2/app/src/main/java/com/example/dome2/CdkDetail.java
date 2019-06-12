@@ -38,15 +38,15 @@ public class CdkDetail extends AppCompatActivity {
         textView3=findViewById(R.id.textView3);
         textView4=findViewById(R.id.textView4);
         imageView=findViewById(R.id.imageView);
-//        button1.setOnClickListener(new View.OnClickListener(){
-//
-//            @Override
-//            public void onClick(View v) {
-//                /**
-//                 * 提交订单后台
-//                 */
-//            }
-//        });
+        button1=findViewById(R.id.login1);
+        button1.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+               Intent intent=new Intent(CdkDetail.this,MainActivity.class);
+               startActivity(intent);
+            }
+        });
 
         //intent接收上个页面的数据 id
         final Intent intent = getIntent();
@@ -60,6 +60,7 @@ public class CdkDetail extends AppCompatActivity {
                 contentResolver.query(Uri.parse("content://666/FindCdks/" + 1), null, null, null, null);
                 JSONArray ja=JSONArray.parseArray(Provider.result);
                 JSONObject jo=ja.getJSONObject(0);
+                System.out.println(Provider.result);
                 textView2.setText("游戏名称: "+jo.getString("name"));
                 textView3.setText("价格: "+jo.getString("price"));
                 textView4.setText("游戏简介: "+jo.getString("intro"));
@@ -81,6 +82,7 @@ public class CdkDetail extends AppCompatActivity {
                 textView3.setText("价格: "+zhoubianjo.getString("price"));
                 textView4.setText("简介: "+zhoubianjo.getString("intro"));
                 imageView.setImageResource(R.mipmap.toy1+id);
+
                 break;
             case "player":
                 contentResolver.query(Uri.parse("content://666/PlayerInfo/" + (id+1)), null, null, null, null);

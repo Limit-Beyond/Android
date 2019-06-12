@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity   {
         timer.schedule(timerTask, 0,30000);
 
 
-Thread t = new Thread(new Runnable() {
+        Thread t = new Thread(new Runnable() {
     @Override
     public void run() {
         ZhenziSmsClient client = new ZhenziSmsClient(apiUrl, appId, appSecret);
